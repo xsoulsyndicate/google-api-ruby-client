@@ -1329,7 +1329,7 @@ module Google
         # Information about the location that this location duplicates.
         # Corresponds to the JSON property `duplicate`
         # @return [Google::Apis::MybusinessV3::Duplicate]
-        attr_accessor :duplicate
+        attr_accessor :duplicate, :maps_url
       
         def initialize(**args)
            update!(**args)
@@ -1338,6 +1338,7 @@ module Google
         # Update properties of this object
         def update!(**args)
           @duplicate = args[:duplicate] if args.key?(:duplicate)
+          @maps_url = args[:maps_url] if args.key?(:maps_url)
         end
       end
       

@@ -575,7 +575,7 @@ module Google
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
           property :duplicate, as: 'duplicate', class: Google::Apis::MybusinessV3::Duplicate, decorator: Google::Apis::MybusinessV3::Duplicate::Representation
-      
+          property :maps_url, as: 'mapsUrl'
         end
       end
       
