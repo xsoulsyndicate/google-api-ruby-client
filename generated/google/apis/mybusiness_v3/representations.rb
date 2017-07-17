@@ -559,6 +559,11 @@ module Google
           property :can_delete, as: 'canDelete'
           property :is_verified, as: 'isVerified'
           property :needs_reverification, as: 'needsReverification'
+          property :is_pending_review, as: 'isPendingReview'
+          property :is_disabled, as: 'isDisabled'
+          property :is_published, as: 'isPublished'
+          property :is_disconnected, as: 'isDisconnected'
+          property :has_pending_verification, as: 'hasPendingVerification'
         end
       end
       

@@ -1265,6 +1265,42 @@ module Google
         # @return [Boolean]
         attr_accessor :needs_reverification
         alias_method :needs_reverification?, :needs_reverification
+
+        # Indicates whether the review of the location is pending.
+        # @OutputOnly
+        # Corresponds to the JSON property `isPendingReview`
+        # @return [Boolean]
+        attr_accessor :is_pending_review
+        alias_method :is_pending_review?, :is_pending_review
+
+        # Indicates whether the location is disabled
+        # @OutputOnly
+        # Corresponds to the JSON property `isDisabled`
+        # @return [Boolean]
+        attr_accessor :is_disabled
+        alias_method :is_disabled?, :is_disabled
+
+        # Indicates whether the location is published.
+        # @OutputOnly
+        # Corresponds to the JSON property `isPublished`
+        # @return [Boolean]
+        attr_accessor :is_published
+        alias_method :is_published?, :is_published
+
+        # Indicates whether the location is disconnected from a place on Google Maps.
+        # @OutputOnly
+        # Corresponds to the JSON property `isDisconnected`
+        # @return [Boolean]
+        attr_accessor :is_disconnected
+        alias_method :is_disconnected?, :is_disconnected
+
+        # Indicates whether the location has pending verification requests.
+        # @OutputOnly
+        # Corresponds to the JSON property `hasPendingVerification`
+        # @return [Boolean]
+        attr_accessor :has_pending_verification
+        alias_method :has_pending_verification?, :has_pending_verification
+
       
         def initialize(**args)
            update!(**args)
@@ -1279,6 +1315,11 @@ module Google
           @can_delete = args[:can_delete] if args.key?(:can_delete)
           @is_verified = args[:is_verified] if args.key?(:is_verified)
           @needs_reverification = args[:needs_reverification] if args.key?(:needs_reverification)
+          @is_pending_review = args[:is_pending_review] if args.key?(:is_pending_review)
+          @is_disabled = args[:is_disabled] if args.key?(:is_disabled)
+          @is_published = args[:is_published] if args.key?(:is_published)
+          @is_disconnected = args[:is_disconnected] if args.key?(:is_disconnected)
+          @has_pending_verification = args[:has_pending_verification] if args.key?(:has_pending_verification)
         end
       end
       
