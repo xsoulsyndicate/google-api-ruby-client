@@ -45,6 +45,12 @@ module Google
       
         include Google::Apis::Core::JsonObjectSupport
       end
+
+      class Notification
+        class Representation < Google::Apis::Core::JsonRepresentation; end
+      
+        include Google::Apis::Core::JsonObjectSupport
+      end
       
       class Admin
         class Representation < Google::Apis::Core::JsonRepresentation; end
@@ -325,6 +331,14 @@ module Google
         class Representation < Google::Apis::Core::JsonRepresentation
           collection :admins, as: 'admins', class: Google::Apis::MybusinessV3::Admin, decorator: Google::Apis::MybusinessV3::Admin::Representation
       
+        end
+      end
+
+      class Notification
+        # @private
+        class Representation < Google::Apis::Core::JsonRepresentation
+          property :name, as: 'name'
+          property :topic_name, as: 'topicName'
         end
       end
       

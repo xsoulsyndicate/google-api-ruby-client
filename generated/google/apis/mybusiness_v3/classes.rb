@@ -103,6 +103,24 @@ module Google
           @state = args[:state] if args.key?(:state)
         end
       end
+
+      class Notification
+        include Google::Apis::Core::Hashable
+      
+        attr_accessor :name
+      
+        attr_accessor :topic_name
+      
+        def initialize(**args)
+           update!(**args)
+        end
+      
+        # Update properties of this object
+        def update!(**args)
+          @name = args[:name] if args.key?(:name)
+          @topic_name = args[:topic_name] if args.key?(:topic_name)
+        end
+      end
       
       # Indicates status of the account, such as whether the account
       # has been verified by Google.

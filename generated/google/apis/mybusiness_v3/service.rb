@@ -116,6 +116,24 @@ module Google
           command.query['quotaUser'] = quota_user unless quota_user.nil?
           execute_or_queue_command(command, &block)
         end
+
+        def get_notifications(name, options: nil, &block)
+          command =  make_simple_command(:get, 'v3/{+name}/notifications', options)
+          command.response_representation = Google::Apis::MybusinessV3::Notification::Representation
+          command.response_class = Google::Apis::MybusinessV3::Notification
+          command.params['name'] = name unless name.nil?
+          execute_or_queue_command(command, &block)
+        end
+
+        def update_notifications(name, notification_object = nil, options: nil, &block)
+          command =  make_simple_command(:put, 'v3/{+name}/notifications', options)
+          command.request_representation = Google::Apis::MybusinessV3::Notification::Representation
+          command.request_object = notification_object
+          command.response_representation = Google::Apis::MybusinessV3::Notification::Representation
+          command.response_class = Google::Apis::MybusinessV3::Notification
+          command.params['name'] = name unless name.nil?
+          execute_or_queue_command(command, &block)
+        end
         
         # Updates the specified business account. Personal accounts cannot be
         # updated using this method.
