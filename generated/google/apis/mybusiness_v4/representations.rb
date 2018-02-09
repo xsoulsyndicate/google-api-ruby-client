@@ -20,7 +20,7 @@ require 'google/apis/errors'
 
 module Google
   module Apis
-    module MybusinessV3
+    module MybusinessV4
       
       class ListAccountsResponse
         class Representation < Google::Apis::Core::JsonRepresentation; end
@@ -301,7 +301,7 @@ module Google
       class ListAccountsResponse
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :accounts, as: 'accounts', class: Google::Apis::MybusinessV3::Account, decorator: Google::Apis::MybusinessV3::Account::Representation
+          collection :accounts, as: 'accounts', class: Google::Apis::MybusinessV4::Account, decorator: Google::Apis::MybusinessV4::Account::Representation
       
           property :next_page_token, as: 'nextPageToken'
         end
@@ -314,7 +314,7 @@ module Google
           property :account_name, as: 'accountName'
           property :type, as: 'type'
           property :role, as: 'role'
-          property :state, as: 'state', class: Google::Apis::MybusinessV3::AccountState, decorator: Google::Apis::MybusinessV3::AccountState::Representation
+          property :state, as: 'state', class: Google::Apis::MybusinessV4::AccountState, decorator: Google::Apis::MybusinessV4::AccountState::Representation
       
         end
       end
@@ -329,7 +329,7 @@ module Google
       class ListAccountAdminsResponse
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :admins, as: 'admins', class: Google::Apis::MybusinessV3::Admin, decorator: Google::Apis::MybusinessV3::Admin::Representation
+          collection :admins, as: 'admins', class: Google::Apis::MybusinessV4::Admin, decorator: Google::Apis::MybusinessV4::Admin::Representation
       
         end
       end
@@ -339,6 +339,7 @@ module Google
         class Representation < Google::Apis::Core::JsonRepresentation
           property :name, as: 'name'
           property :topic_name, as: 'topicName'
+          property :notification_types, as: 'notificationTypes'
         end
       end
       
@@ -361,7 +362,7 @@ module Google
       class ListLocationsResponse
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :locations, as: 'locations', class: Google::Apis::MybusinessV3::Location, decorator: Google::Apis::MybusinessV3::Location::Representation
+          collection :locations, as: 'locations', class: Google::Apis::MybusinessV4::Location, decorator: Google::Apis::MybusinessV4::Location::Representation
       
           property :next_page_token, as: 'nextPageToken'
         end
@@ -375,35 +376,35 @@ module Google
           property :location_name, as: 'locationName'
           property :primary_phone, as: 'primaryPhone'
           collection :additional_phones, as: 'additionalPhones'
-          property :address, as: 'address', class: Google::Apis::MybusinessV3::Address, decorator: Google::Apis::MybusinessV3::Address::Representation
+          property :address, as: 'address', class: Google::Apis::MybusinessV4::Address, decorator: Google::Apis::MybusinessV4::Address::Representation
       
-          property :primary_category, as: 'primaryCategory', class: Google::Apis::MybusinessV3::Category, decorator: Google::Apis::MybusinessV3::Category::Representation
+          property :primary_category, as: 'primaryCategory', class: Google::Apis::MybusinessV4::Category, decorator: Google::Apis::MybusinessV4::Category::Representation
       
-          collection :additional_categories, as: 'additionalCategories', class: Google::Apis::MybusinessV3::Category, decorator: Google::Apis::MybusinessV3::Category::Representation
+          collection :additional_categories, as: 'additionalCategories', class: Google::Apis::MybusinessV4::Category, decorator: Google::Apis::MybusinessV4::Category::Representation
       
           property :website_url, as: 'websiteUrl'
-          property :regular_hours, as: 'regularHours', class: Google::Apis::MybusinessV3::BusinessHours, decorator: Google::Apis::MybusinessV3::BusinessHours::Representation
+          property :regular_hours, as: 'regularHours', class: Google::Apis::MybusinessV4::BusinessHours, decorator: Google::Apis::MybusinessV4::BusinessHours::Representation
       
-          property :special_hours, as: 'specialHours', class: Google::Apis::MybusinessV3::SpecialHours, decorator: Google::Apis::MybusinessV3::SpecialHours::Representation
+          property :special_hours, as: 'specialHours', class: Google::Apis::MybusinessV4::SpecialHours, decorator: Google::Apis::MybusinessV4::SpecialHours::Representation
       
-          property :service_area, as: 'serviceArea', class: Google::Apis::MybusinessV3::ServiceAreaBusiness, decorator: Google::Apis::MybusinessV3::ServiceAreaBusiness::Representation
+          property :service_area, as: 'serviceArea', class: Google::Apis::MybusinessV4::ServiceAreaBusiness, decorator: Google::Apis::MybusinessV4::ServiceAreaBusiness::Representation
       
-          property :location_key, as: 'locationKey', class: Google::Apis::MybusinessV3::LocationKey, decorator: Google::Apis::MybusinessV3::LocationKey::Representation
+          property :location_key, as: 'locationKey', class: Google::Apis::MybusinessV4::LocationKey, decorator: Google::Apis::MybusinessV4::LocationKey::Representation
       
           collection :labels, as: 'labels'
-          property :ad_words_location_extensions, as: 'adWordsLocationExtensions', class: Google::Apis::MybusinessV3::AdWordsLocationExtensions, decorator: Google::Apis::MybusinessV3::AdWordsLocationExtensions::Representation
+          property :ad_words_location_extensions, as: 'adWordsLocationExtensions', class: Google::Apis::MybusinessV4::AdWordsLocationExtensions, decorator: Google::Apis::MybusinessV4::AdWordsLocationExtensions::Representation
       
-          property :photos, as: 'photos', class: Google::Apis::MybusinessV3::Photos, decorator: Google::Apis::MybusinessV3::Photos::Representation
+          property :photos, as: 'photos', class: Google::Apis::MybusinessV4::Photos, decorator: Google::Apis::MybusinessV4::Photos::Representation
       
-          property :latlng, as: 'latlng', class: Google::Apis::MybusinessV3::LatLng, decorator: Google::Apis::MybusinessV3::LatLng::Representation
+          property :latlng, as: 'latlng', class: Google::Apis::MybusinessV4::LatLng, decorator: Google::Apis::MybusinessV4::LatLng::Representation
       
-          property :open_info, as: 'openInfo', class: Google::Apis::MybusinessV3::OpenInfo, decorator: Google::Apis::MybusinessV3::OpenInfo::Representation
+          property :open_info, as: 'openInfo', class: Google::Apis::MybusinessV4::OpenInfo, decorator: Google::Apis::MybusinessV4::OpenInfo::Representation
       
-          property :location_state, as: 'locationState', class: Google::Apis::MybusinessV3::LocationState, decorator: Google::Apis::MybusinessV3::LocationState::Representation
+          property :location_state, as: 'locationState', class: Google::Apis::MybusinessV4::LocationState, decorator: Google::Apis::MybusinessV4::LocationState::Representation
       
-          collection :attributes, as: 'attributes', class: Google::Apis::MybusinessV3::Attribute, decorator: Google::Apis::MybusinessV3::Attribute::Representation
+          collection :attributes, as: 'attributes', class: Google::Apis::MybusinessV4::Attribute, decorator: Google::Apis::MybusinessV4::Attribute::Representation
       
-          property :metadata, as: 'metadata', class: Google::Apis::MybusinessV3::Metadata, decorator: Google::Apis::MybusinessV3::Metadata::Representation
+          property :metadata, as: 'metadata', class: Google::Apis::MybusinessV4::Metadata, decorator: Google::Apis::MybusinessV4::Metadata::Representation
       
         end
       end
@@ -412,10 +413,10 @@ module Google
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
           collection :address_lines, as: 'addressLines'
-          property :sub_locality, as: 'subLocality'
+          property :sublocality, as: 'sublocality'
           property :locality, as: 'locality'
           property :administrative_area, as: 'administrativeArea'
-          property :country, as: 'country'
+          property :region_code, as: 'regionCode'
           property :postal_code, as: 'postalCode'
         end
       end
@@ -431,7 +432,7 @@ module Google
       class BusinessHours
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :periods, as: 'periods', class: Google::Apis::MybusinessV3::TimePeriod, decorator: Google::Apis::MybusinessV3::TimePeriod::Representation
+          collection :periods, as: 'periods', class: Google::Apis::MybusinessV4::TimePeriod, decorator: Google::Apis::MybusinessV4::TimePeriod::Representation
       
         end
       end
@@ -449,7 +450,7 @@ module Google
       class SpecialHours
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :special_hour_periods, as: 'specialHourPeriods', class: Google::Apis::MybusinessV3::SpecialHourPeriod, decorator: Google::Apis::MybusinessV3::SpecialHourPeriod::Representation
+          collection :special_hour_periods, as: 'specialHourPeriods', class: Google::Apis::MybusinessV4::SpecialHourPeriod, decorator: Google::Apis::MybusinessV4::SpecialHourPeriod::Representation
       
         end
       end
@@ -457,10 +458,10 @@ module Google
       class SpecialHourPeriod
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          property :start_date, as: 'startDate', class: Google::Apis::MybusinessV3::Date, decorator: Google::Apis::MybusinessV3::Date::Representation
+          property :start_date, as: 'startDate', class: Google::Apis::MybusinessV4::Date, decorator: Google::Apis::MybusinessV4::Date::Representation
       
           property :open_time, as: 'openTime'
-          property :end_date, as: 'endDate', class: Google::Apis::MybusinessV3::Date, decorator: Google::Apis::MybusinessV3::Date::Representation
+          property :end_date, as: 'endDate', class: Google::Apis::MybusinessV4::Date, decorator: Google::Apis::MybusinessV4::Date::Representation
       
           property :close_time, as: 'closeTime'
           property :is_closed, as: 'isClosed'
@@ -480,9 +481,9 @@ module Google
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
           property :business_type, as: 'businessType'
-          property :radius, as: 'radius', class: Google::Apis::MybusinessV3::PointRadius, decorator: Google::Apis::MybusinessV3::PointRadius::Representation
+          property :radius, as: 'radius', class: Google::Apis::MybusinessV4::PointRadius, decorator: Google::Apis::MybusinessV4::PointRadius::Representation
       
-          property :places, as: 'places', class: Google::Apis::MybusinessV3::Places, decorator: Google::Apis::MybusinessV3::Places::Representation
+          property :places, as: 'places', class: Google::Apis::MybusinessV4::Places, decorator: Google::Apis::MybusinessV4::Places::Representation
       
         end
       end
@@ -490,7 +491,7 @@ module Google
       class PointRadius
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          property :latlng, as: 'latlng', class: Google::Apis::MybusinessV3::LatLng, decorator: Google::Apis::MybusinessV3::LatLng::Representation
+          property :latlng, as: 'latlng', class: Google::Apis::MybusinessV4::LatLng, decorator: Google::Apis::MybusinessV4::LatLng::Representation
       
           property :radius_km, as: 'radiusKm'
         end
@@ -507,7 +508,7 @@ module Google
       class Places
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :place_infos, as: 'placeInfos', class: Google::Apis::MybusinessV3::PlaceInfo, decorator: Google::Apis::MybusinessV3::PlaceInfo::Representation
+          collection :place_infos, as: 'placeInfos', class: Google::Apis::MybusinessV4::PlaceInfo, decorator: Google::Apis::MybusinessV4::PlaceInfo::Representation
       
         end
       end
@@ -593,7 +594,7 @@ module Google
       class Metadata
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          property :duplicate, as: 'duplicate', class: Google::Apis::MybusinessV3::Duplicate, decorator: Google::Apis::MybusinessV3::Duplicate::Representation
+          property :duplicate, as: 'duplicate', class: Google::Apis::MybusinessV4::Duplicate, decorator: Google::Apis::MybusinessV4::Duplicate::Representation
           property :maps_url, as: 'mapsUrl'
         end
       end
@@ -602,7 +603,6 @@ module Google
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
           property :location_name, as: 'locationName'
-          property :ownership, as: 'ownership'
         end
       end
       
@@ -616,7 +616,7 @@ module Google
       class BatchGetLocationsResponse
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :locations, as: 'locations', class: Google::Apis::MybusinessV3::Location, decorator: Google::Apis::MybusinessV3::Location::Representation
+          collection :locations, as: 'locations', class: Google::Apis::MybusinessV4::Location, decorator: Google::Apis::MybusinessV4::Location::Representation
       
         end
       end
@@ -624,7 +624,7 @@ module Google
       class GoogleUpdatedLocation
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          property :location, as: 'location', class: Google::Apis::MybusinessV3::Location, decorator: Google::Apis::MybusinessV3::Location::Representation
+          property :location, as: 'location', class: Google::Apis::MybusinessV4::Location, decorator: Google::Apis::MybusinessV4::Location::Representation
       
           property :diff_mask, as: 'diffMask'
         end
@@ -633,7 +633,7 @@ module Google
       class ListLocationAdminsResponse
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :admins, as: 'admins', class: Google::Apis::MybusinessV3::Admin, decorator: Google::Apis::MybusinessV3::Admin::Representation
+          collection :admins, as: 'admins', class: Google::Apis::MybusinessV4::Admin, decorator: Google::Apis::MybusinessV4::Admin::Representation
       
         end
       end
@@ -650,7 +650,7 @@ module Google
       class FindMatchingLocationsResponse
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :matched_locations, as: 'matchedLocations', class: Google::Apis::MybusinessV3::MatchedLocation, decorator: Google::Apis::MybusinessV3::MatchedLocation::Representation
+          collection :matched_locations, as: 'matchedLocations', class: Google::Apis::MybusinessV4::MatchedLocation, decorator: Google::Apis::MybusinessV4::MatchedLocation::Representation
       
           property :match_time, as: 'matchTime'
         end
@@ -659,7 +659,7 @@ module Google
       class MatchedLocation
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          property :location, as: 'location', class: Google::Apis::MybusinessV3::Location, decorator: Google::Apis::MybusinessV3::Location::Representation
+          property :location, as: 'location', class: Google::Apis::MybusinessV4::Location, decorator: Google::Apis::MybusinessV4::Location::Representation
       
           property :is_exact_match, as: 'isExactMatch'
         end
@@ -688,7 +688,7 @@ module Google
       class ListReviewsResponse
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :reviews, as: 'reviews', class: Google::Apis::MybusinessV3::Review, decorator: Google::Apis::MybusinessV3::Review::Representation
+          collection :reviews, as: 'reviews', class: Google::Apis::MybusinessV4::Review, decorator: Google::Apis::MybusinessV4::Review::Representation
       
           property :average_rating, as: 'averageRating'
           property :total_review_count, as: 'totalReviewCount'
@@ -700,13 +700,13 @@ module Google
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
           property :review_id, as: 'reviewId'
-          property :reviewer, as: 'reviewer', class: Google::Apis::MybusinessV3::Reviewer, decorator: Google::Apis::MybusinessV3::Reviewer::Representation
+          property :reviewer, as: 'reviewer', class: Google::Apis::MybusinessV4::Reviewer, decorator: Google::Apis::MybusinessV4::Reviewer::Representation
       
           property :star_rating, as: 'starRating'
           property :comment, as: 'comment'
           property :create_time, as: 'createTime'
           property :update_time, as: 'updateTime'
-          property :review_reply, as: 'reviewReply', class: Google::Apis::MybusinessV3::ReviewReply, decorator: Google::Apis::MybusinessV3::ReviewReply::Representation
+          property :review_reply, as: 'reviewReply', class: Google::Apis::MybusinessV4::ReviewReply, decorator: Google::Apis::MybusinessV4::ReviewReply::Representation
       
         end
       end
@@ -730,7 +730,7 @@ module Google
       class ListLocationAttributeMetadataResponse
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
-          collection :attributes, as: 'attributes', class: Google::Apis::MybusinessV3::AttributeMetadata, decorator: Google::Apis::MybusinessV3::AttributeMetadata::Representation
+          collection :attributes, as: 'attributes', class: Google::Apis::MybusinessV4::AttributeMetadata, decorator: Google::Apis::MybusinessV4::AttributeMetadata::Representation
       
         end
       end
@@ -743,7 +743,7 @@ module Google
           property :display_name, as: 'displayName'
           property :group_display_name, as: 'groupDisplayName'
           property :is_repeatable, as: 'isRepeatable'
-          collection :value_metadata, as: 'valueMetadata', class: Google::Apis::MybusinessV3::AttributeValueMetadata, decorator: Google::Apis::MybusinessV3::AttributeValueMetadata::Representation
+          collection :value_metadata, as: 'valueMetadata', class: Google::Apis::MybusinessV4::AttributeValueMetadata, decorator: Google::Apis::MybusinessV4::AttributeValueMetadata::Representation
       
         end
       end

@@ -19,16 +19,16 @@ require 'google/apis/errors'
 
 module Google
   module Apis
-    module MybusinessV3
+    module MybusinessV4
       # Google My Business API
       #
       # The Google My Business API provides an interface for managing business
       #  location information on Google.
       #
       # @example
-      #    require 'google/apis/mybusiness_v3'
+      #    require 'google/apis/mybusiness_v4'
       #
-      #    Mybusiness = Google::Apis::MybusinessV3 # Alias the module
+      #    Mybusiness = Google::Apis::MybusinessV4 # Alias the module
       #    service = Mybusiness::MybusinessService.new
       #
       # @see https://developers.google.com/my-business/
@@ -67,18 +67,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::ListAccountsResponse] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::ListAccountsResponse] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::ListAccountsResponse]
+        # @return [Google::Apis::MybusinessV4::ListAccountsResponse]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def list_accounts(page_size: nil, page_token: nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/accounts', options)
-          command.response_representation = Google::Apis::MybusinessV3::ListAccountsResponse::Representation
-          command.response_class = Google::Apis::MybusinessV3::ListAccountsResponse
+          command =  make_simple_command(:get, 'v4/accounts', options)
+          command.response_representation = Google::Apis::MybusinessV4::ListAccountsResponse::Representation
+          command.response_class = Google::Apis::MybusinessV4::ListAccountsResponse
           command.query['pageSize'] = page_size unless page_size.nil?
           command.query['pageToken'] = page_token unless page_token.nil?
           command.query['fields'] = fields unless fields.nil?
@@ -99,18 +99,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Account] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Account] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Account]
+        # @return [Google::Apis::MybusinessV4::Account]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def get_account(name, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/{+name}', options)
-          command.response_representation = Google::Apis::MybusinessV3::Account::Representation
-          command.response_class = Google::Apis::MybusinessV3::Account
+          command =  make_simple_command(:get, 'v4/{+name}', options)
+          command.response_representation = Google::Apis::MybusinessV4::Account::Representation
+          command.response_class = Google::Apis::MybusinessV4::Account
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -118,19 +118,19 @@ module Google
         end
 
         def get_notifications(name, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/{+name}/notifications', options)
-          command.response_representation = Google::Apis::MybusinessV3::Notification::Representation
-          command.response_class = Google::Apis::MybusinessV3::Notification
+          command =  make_simple_command(:get, 'v4/{+name}/notifications', options)
+          command.response_representation = Google::Apis::MybusinessV4::Notification::Representation
+          command.response_class = Google::Apis::MybusinessV4::Notification
           command.params['name'] = name unless name.nil?
           execute_or_queue_command(command, &block)
         end
 
         def update_notifications(name, notification_object = nil, options: nil, &block)
-          command =  make_simple_command(:put, 'v3/{+name}/notifications', options)
-          command.request_representation = Google::Apis::MybusinessV3::Notification::Representation
+          command =  make_simple_command(:put, 'v4/{+name}/notifications', options)
+          command.request_representation = Google::Apis::MybusinessV4::Notification::Representation
           command.request_object = notification_object
-          command.response_representation = Google::Apis::MybusinessV3::Notification::Representation
-          command.response_class = Google::Apis::MybusinessV3::Notification
+          command.response_representation = Google::Apis::MybusinessV4::Notification::Representation
+          command.response_class = Google::Apis::MybusinessV4::Notification
           command.params['name'] = name unless name.nil?
           execute_or_queue_command(command, &block)
         end
@@ -143,7 +143,7 @@ module Google
         # ignored.
         # @param [String] name
         #   The name of the account to update.
-        # @param [Google::Apis::MybusinessV3::Account] account_object
+        # @param [Google::Apis::MybusinessV4::Account] account_object
         # @param [String] language_code
         #   The language of the account update.
         # @param [Boolean] validate_only
@@ -157,20 +157,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Account] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Account] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Account]
+        # @return [Google::Apis::MybusinessV4::Account]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def update_account(name, account_object = nil, language_code: nil, validate_only: nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:put, 'v3/{+name}', options)
-          command.request_representation = Google::Apis::MybusinessV3::Account::Representation
+          command =  make_simple_command(:put, 'v4/{+name}', options)
+          command.request_representation = Google::Apis::MybusinessV4::Account::Representation
           command.request_object = account_object
-          command.response_representation = Google::Apis::MybusinessV3::Account::Representation
-          command.response_class = Google::Apis::MybusinessV3::Account
+          command.response_representation = Google::Apis::MybusinessV4::Account::Representation
+          command.response_class = Google::Apis::MybusinessV4::Account
           command.params['name'] = name unless name.nil?
           command.query['languageCode'] = language_code unless language_code.nil?
           command.query['validateOnly'] = validate_only unless validate_only.nil?
@@ -191,18 +191,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::ListAccountAdminsResponse] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::ListAccountAdminsResponse] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::ListAccountAdminsResponse]
+        # @return [Google::Apis::MybusinessV4::ListAccountAdminsResponse]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def list_account_admins(name, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/{+name}/admins', options)
-          command.response_representation = Google::Apis::MybusinessV3::ListAccountAdminsResponse::Representation
-          command.response_class = Google::Apis::MybusinessV3::ListAccountAdminsResponse
+          command =  make_simple_command(:get, 'v4/{+name}/admins', options)
+          command.response_representation = Google::Apis::MybusinessV4::ListAccountAdminsResponse::Representation
+          command.response_class = Google::Apis::MybusinessV4::ListAccountAdminsResponse
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -217,7 +217,7 @@ module Google
         #   `accounts/`account_id`/admins/`admin_id``
         #   For location admins, this is in the form:
         #   `accounts/`account_id`/locations/`location_id`/admins/`admin_id``
-        # @param [Google::Apis::MybusinessV3::Admin] admin_object
+        # @param [Google::Apis::MybusinessV4::Admin] admin_object
         # @param [String] fields
         #   Selector specifying which fields to include in a partial response.
         # @param [String] quota_user
@@ -227,20 +227,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Admin] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Admin] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Admin]
+        # @return [Google::Apis::MybusinessV4::Admin]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def create_account_admin(name, admin_object = nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:post, 'v3/{+name}/admins', options)
-          command.request_representation = Google::Apis::MybusinessV3::Admin::Representation
+          command =  make_simple_command(:post, 'v4/{+name}/admins', options)
+          command.request_representation = Google::Apis::MybusinessV4::Admin::Representation
           command.request_object = admin_object
-          command.response_representation = Google::Apis::MybusinessV3::Admin::Representation
-          command.response_class = Google::Apis::MybusinessV3::Admin
+          command.response_representation = Google::Apis::MybusinessV4::Admin::Representation
+          command.response_class = Google::Apis::MybusinessV4::Admin
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -259,18 +259,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Empty] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Empty] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Empty]
+        # @return [Google::Apis::MybusinessV4::Empty]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def delete_account_admin(name, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:delete, 'v3/{+name}', options)
-          command.response_representation = Google::Apis::MybusinessV3::Empty::Representation
-          command.response_class = Google::Apis::MybusinessV3::Empty
+          command =  make_simple_command(:delete, 'v4/{+name}', options)
+          command.response_representation = Google::Apis::MybusinessV4::Empty::Representation
+          command.response_class = Google::Apis::MybusinessV4::Empty
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -305,18 +305,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::ListLocationsResponse] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::ListLocationsResponse] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::ListLocationsResponse]
+        # @return [Google::Apis::MybusinessV4::ListLocationsResponse]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def list_account_locations(name, page_size: nil, page_token: nil, filter: nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/{+name}/locations', options)
-          command.response_representation = Google::Apis::MybusinessV3::ListLocationsResponse::Representation
-          command.response_class = Google::Apis::MybusinessV3::ListLocationsResponse
+          command =  make_simple_command(:get, 'v4/{+name}/locations', options)
+          command.response_representation = Google::Apis::MybusinessV4::ListLocationsResponse::Representation
+          command.response_class = Google::Apis::MybusinessV4::ListLocationsResponse
           command.params['name'] = name unless name.nil?
           command.query['pageSize'] = page_size unless page_size.nil?
           command.query['pageToken'] = page_token unless page_token.nil?
@@ -339,18 +339,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Location] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Location] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Location]
+        # @return [Google::Apis::MybusinessV4::Location]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def get_account_location(name, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/{+name}', options)
-          command.response_representation = Google::Apis::MybusinessV3::Location::Representation
-          command.response_class = Google::Apis::MybusinessV3::Location
+          command =  make_simple_command(:get, 'v4/{+name}', options)
+          command.response_representation = Google::Apis::MybusinessV4::Location::Representation
+          command.response_class = Google::Apis::MybusinessV4::Location
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -360,7 +360,7 @@ module Google
         # Gets all of the specified locations in the given account.
         # @param [String] name
         #   The name of the account from which to fetch locations.
-        # @param [Google::Apis::MybusinessV3::BatchGetLocationsRequest] batch_get_locations_request_object
+        # @param [Google::Apis::MybusinessV4::BatchGetLocationsRequest] batch_get_locations_request_object
         # @param [String] fields
         #   Selector specifying which fields to include in a partial response.
         # @param [String] quota_user
@@ -370,20 +370,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::BatchGetLocationsResponse] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::BatchGetLocationsResponse] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::BatchGetLocationsResponse]
+        # @return [Google::Apis::MybusinessV4::BatchGetLocationsResponse]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def batch_get_locations(name, batch_get_locations_request_object = nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:post, 'v3/{+name}/locations:batchGet', options)
-          command.request_representation = Google::Apis::MybusinessV3::BatchGetLocationsRequest::Representation
+          command =  make_simple_command(:post, 'v4/{+name}/locations:batchGet', options)
+          command.request_representation = Google::Apis::MybusinessV4::BatchGetLocationsRequest::Representation
           command.request_object = batch_get_locations_request_object
-          command.response_representation = Google::Apis::MybusinessV3::BatchGetLocationsResponse::Representation
-          command.response_class = Google::Apis::MybusinessV3::BatchGetLocationsResponse
+          command.response_representation = Google::Apis::MybusinessV4::BatchGetLocationsResponse::Representation
+          command.response_class = Google::Apis::MybusinessV4::BatchGetLocationsResponse
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -403,18 +403,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::GoogleUpdatedLocation] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::GoogleUpdatedLocation] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::GoogleUpdatedLocation]
+        # @return [Google::Apis::MybusinessV4::GoogleUpdatedLocation]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def get_google_updated_account_location(name, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/{+name}:googleUpdated', options)
-          command.response_representation = Google::Apis::MybusinessV3::GoogleUpdatedLocation::Representation
-          command.response_class = Google::Apis::MybusinessV3::GoogleUpdatedLocation
+          command =  make_simple_command(:get, 'v4/{+name}:googleUpdated', options)
+          command.response_representation = Google::Apis::MybusinessV4::GoogleUpdatedLocation::Representation
+          command.response_class = Google::Apis::MybusinessV4::GoogleUpdatedLocation
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -425,7 +425,7 @@ module Google
         # specified account, and returns it.
         # @param [String] name
         #   The name of the account in which to create this location.
-        # @param [Google::Apis::MybusinessV3::Location] location_object
+        # @param [Google::Apis::MybusinessV4::Location] location_object
         # @param [String] language_code
         #   The language of the location update. Currently this is used to disambiguate
         #   what localized categories are valid for this create request.
@@ -443,20 +443,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Location] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Location] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Location]
+        # @return [Google::Apis::MybusinessV4::Location]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def create_account_location(name, location_object = nil, language_code: nil, validate_only: nil, request_id: nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:post, 'v3/{+name}/locations', options)
-          command.request_representation = Google::Apis::MybusinessV3::Location::Representation
+          command =  make_simple_command(:post, 'v4/{+name}/locations', options)
+          command.request_representation = Google::Apis::MybusinessV4::Location::Representation
           command.request_object = location_object
-          command.response_representation = Google::Apis::MybusinessV3::Location::Representation
-          command.response_class = Google::Apis::MybusinessV3::Location
+          command.response_representation = Google::Apis::MybusinessV4::Location::Representation
+          command.response_class = Google::Apis::MybusinessV4::Location
           command.params['name'] = name unless name.nil?
           command.query['languageCode'] = language_code unless language_code.nil?
           command.query['validateOnly'] = validate_only unless validate_only.nil?
@@ -471,7 +471,7 @@ module Google
         # Returns `NOT_FOUND` if the location does not exist.
         # @param [String] name
         #   The name of the location to update.
-        # @param [Google::Apis::MybusinessV3::Location] location_object
+        # @param [Google::Apis::MybusinessV4::Location] location_object
         # @param [String] language_code
         #   The language of the location update. Currently this is used to disambiguate
         #   what localized categories are valid for this update request.
@@ -490,20 +490,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Location] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Location] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Location]
+        # @return [Google::Apis::MybusinessV4::Location]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def patch_account_location(name, location_object = nil, language_code: nil, field_mask: nil, validate_only: nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:patch, 'v3/{+name}', options)
-          command.request_representation = Google::Apis::MybusinessV3::Location::Representation
+          command =  make_simple_command(:patch, 'v4/{+name}', options)
+          command.request_representation = Google::Apis::MybusinessV4::Location::Representation
           command.request_object = location_object
-          command.response_representation = Google::Apis::MybusinessV3::Location::Representation
-          command.response_class = Google::Apis::MybusinessV3::Location
+          command.response_representation = Google::Apis::MybusinessV4::Location::Representation
+          command.response_class = Google::Apis::MybusinessV4::Location
           command.params['name'] = name unless name.nil?
           command.query['languageCode'] = language_code unless language_code.nil?
           command.query['fieldMask'] = field_mask unless field_mask.nil?
@@ -530,18 +530,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Empty] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Empty] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Empty]
+        # @return [Google::Apis::MybusinessV4::Empty]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def delete_account_location(name, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:delete, 'v3/{+name}', options)
-          command.response_representation = Google::Apis::MybusinessV3::Empty::Representation
-          command.response_class = Google::Apis::MybusinessV3::Empty
+          command =  make_simple_command(:delete, 'v4/{+name}', options)
+          command.response_representation = Google::Apis::MybusinessV4::Empty::Representation
+          command.response_class = Google::Apis::MybusinessV4::Empty
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -552,7 +552,7 @@ module Google
         # location. This operation is only valid if the location is unverified.
         # @param [String] name
         #   The resource name of the location to find matches for.
-        # @param [Google::Apis::MybusinessV3::FindMatchingLocationsRequest] find_matching_locations_request_object
+        # @param [Google::Apis::MybusinessV4::FindMatchingLocationsRequest] find_matching_locations_request_object
         # @param [String] fields
         #   Selector specifying which fields to include in a partial response.
         # @param [String] quota_user
@@ -562,20 +562,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::FindMatchingLocationsResponse] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::FindMatchingLocationsResponse] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::FindMatchingLocationsResponse]
+        # @return [Google::Apis::MybusinessV4::FindMatchingLocationsResponse]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def find_account_location_matches(name, find_matching_locations_request_object = nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:post, 'v3/{+name}:findMatches', options)
-          command.request_representation = Google::Apis::MybusinessV3::FindMatchingLocationsRequest::Representation
+          command =  make_simple_command(:post, 'v4/{+name}:findMatches', options)
+          command.request_representation = Google::Apis::MybusinessV4::FindMatchingLocationsRequest::Representation
           command.request_object = find_matching_locations_request_object
-          command.response_representation = Google::Apis::MybusinessV3::FindMatchingLocationsResponse::Representation
-          command.response_class = Google::Apis::MybusinessV3::FindMatchingLocationsResponse
+          command.response_representation = Google::Apis::MybusinessV4::FindMatchingLocationsResponse::Representation
+          command.response_class = Google::Apis::MybusinessV4::FindMatchingLocationsResponse
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -588,7 +588,7 @@ module Google
         # FindMatchingLocations.
         # @param [String] name
         #   The resource name of the location to associate.
-        # @param [Google::Apis::MybusinessV3::AssociateLocationRequest] associate_location_request_object
+        # @param [Google::Apis::MybusinessV4::AssociateLocationRequest] associate_location_request_object
         # @param [String] fields
         #   Selector specifying which fields to include in a partial response.
         # @param [String] quota_user
@@ -598,20 +598,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Empty] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Empty] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Empty]
+        # @return [Google::Apis::MybusinessV4::Empty]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def associate_location(name, associate_location_request_object = nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:post, 'v3/{+name}:associate', options)
-          command.request_representation = Google::Apis::MybusinessV3::AssociateLocationRequest::Representation
+          command =  make_simple_command(:post, 'v4/{+name}:associate', options)
+          command.request_representation = Google::Apis::MybusinessV4::AssociateLocationRequest::Representation
           command.request_object = associate_location_request_object
-          command.response_representation = Google::Apis::MybusinessV3::Empty::Representation
-          command.response_class = Google::Apis::MybusinessV3::Empty
+          command.response_representation = Google::Apis::MybusinessV4::Empty::Representation
+          command.response_class = Google::Apis::MybusinessV4::Empty
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -622,7 +622,7 @@ module Google
         # operation is only valid if the location is unverified.
         # @param [String] name
         #   The resource name of the location to disassociate.
-        # @param [Google::Apis::MybusinessV3::ClearLocationAssociationRequest] clear_location_association_request_object
+        # @param [Google::Apis::MybusinessV4::ClearLocationAssociationRequest] clear_location_association_request_object
         # @param [String] fields
         #   Selector specifying which fields to include in a partial response.
         # @param [String] quota_user
@@ -632,20 +632,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Empty] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Empty] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Empty]
+        # @return [Google::Apis::MybusinessV4::Empty]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def clear_account_location_association(name, clear_location_association_request_object = nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:post, 'v3/{+name}:clearAssociation', options)
-          command.request_representation = Google::Apis::MybusinessV3::ClearLocationAssociationRequest::Representation
+          command =  make_simple_command(:post, 'v4/{+name}:clearAssociation', options)
+          command.request_representation = Google::Apis::MybusinessV4::ClearLocationAssociationRequest::Representation
           command.request_object = clear_location_association_request_object
-          command.response_representation = Google::Apis::MybusinessV3::Empty::Representation
-          command.response_class = Google::Apis::MybusinessV3::Empty
+          command.response_representation = Google::Apis::MybusinessV4::Empty::Representation
+          command.response_class = Google::Apis::MybusinessV4::Empty
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -657,7 +657,7 @@ module Google
         # same ultimate owner. Returns the Location with its new resource name.
         # @param [String] name
         #   The name of the location to transfer.
-        # @param [Google::Apis::MybusinessV3::TransferLocationRequest] transfer_location_request_object
+        # @param [Google::Apis::MybusinessV4::TransferLocationRequest] transfer_location_request_object
         # @param [String] fields
         #   Selector specifying which fields to include in a partial response.
         # @param [String] quota_user
@@ -667,20 +667,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Location] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Location] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Location]
+        # @return [Google::Apis::MybusinessV4::Location]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def transfer_location(name, transfer_location_request_object = nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:post, 'v3/{+name}:transfer', options)
-          command.request_representation = Google::Apis::MybusinessV3::TransferLocationRequest::Representation
+          command =  make_simple_command(:post, 'v4/{+name}:transfer', options)
+          command.request_representation = Google::Apis::MybusinessV4::TransferLocationRequest::Representation
           command.request_object = transfer_location_request_object
-          command.response_representation = Google::Apis::MybusinessV3::Location::Representation
-          command.response_class = Google::Apis::MybusinessV3::Location
+          command.response_representation = Google::Apis::MybusinessV4::Location::Representation
+          command.response_class = Google::Apis::MybusinessV4::Location
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -699,18 +699,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::ListLocationAdminsResponse] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::ListLocationAdminsResponse] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::ListLocationAdminsResponse]
+        # @return [Google::Apis::MybusinessV4::ListLocationAdminsResponse]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def list_account_location_admins(name, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/{+name}/admins', options)
-          command.response_representation = Google::Apis::MybusinessV3::ListLocationAdminsResponse::Representation
-          command.response_class = Google::Apis::MybusinessV3::ListLocationAdminsResponse
+          command =  make_simple_command(:get, 'v4/{+name}/admins', options)
+          command.response_representation = Google::Apis::MybusinessV4::ListLocationAdminsResponse::Representation
+          command.response_class = Google::Apis::MybusinessV4::ListLocationAdminsResponse
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -725,7 +725,7 @@ module Google
         #   `accounts/`account_id`/admins/`admin_id``
         #   For location admins, this is in the form:
         #   `accounts/`account_id`/locations/`location_id`/admins/`admin_id``
-        # @param [Google::Apis::MybusinessV3::Admin] admin_object
+        # @param [Google::Apis::MybusinessV4::Admin] admin_object
         # @param [String] fields
         #   Selector specifying which fields to include in a partial response.
         # @param [String] quota_user
@@ -735,20 +735,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Admin] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Admin] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Admin]
+        # @return [Google::Apis::MybusinessV4::Admin]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def create_account_location_admin(name, admin_object = nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:post, 'v3/{+name}/admins', options)
-          command.request_representation = Google::Apis::MybusinessV3::Admin::Representation
+          command =  make_simple_command(:post, 'v4/{+name}/admins', options)
+          command.request_representation = Google::Apis::MybusinessV4::Admin::Representation
           command.request_object = admin_object
-          command.response_representation = Google::Apis::MybusinessV3::Admin::Representation
-          command.response_class = Google::Apis::MybusinessV3::Admin
+          command.response_representation = Google::Apis::MybusinessV4::Admin::Representation
+          command.response_class = Google::Apis::MybusinessV4::Admin
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -767,18 +767,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Empty] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Empty] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Empty]
+        # @return [Google::Apis::MybusinessV4::Empty]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def delete_account_location_admin(name, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:delete, 'v3/{+name}', options)
-          command.response_representation = Google::Apis::MybusinessV3::Empty::Representation
-          command.response_class = Google::Apis::MybusinessV3::Empty
+          command =  make_simple_command(:delete, 'v4/{+name}', options)
+          command.response_representation = Google::Apis::MybusinessV4::Empty::Representation
+          command.response_class = Google::Apis::MybusinessV4::Empty
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -807,18 +807,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::ListReviewsResponse] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::ListReviewsResponse] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::ListReviewsResponse]
+        # @return [Google::Apis::MybusinessV4::ListReviewsResponse]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def list_reviews(name, page_size: nil, page_token: nil, order_by: nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/{+name}/reviews', options)
-          command.response_representation = Google::Apis::MybusinessV3::ListReviewsResponse::Representation
-          command.response_class = Google::Apis::MybusinessV3::ListReviewsResponse
+          command =  make_simple_command(:get, 'v4/{+name}/reviews', options)
+          command.response_representation = Google::Apis::MybusinessV4::ListReviewsResponse::Representation
+          command.response_class = Google::Apis::MybusinessV4::ListReviewsResponse
           command.params['name'] = name unless name.nil?
           command.query['pageSize'] = page_size unless page_size.nil?
           command.query['pageToken'] = page_token unless page_token.nil?
@@ -842,18 +842,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Review] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Review] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Review]
+        # @return [Google::Apis::MybusinessV4::Review]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def get_review(name, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/{+name}', options)
-          command.response_representation = Google::Apis::MybusinessV3::Review::Representation
-          command.response_class = Google::Apis::MybusinessV3::Review
+          command =  make_simple_command(:get, 'v4/{+name}', options)
+          command.response_representation = Google::Apis::MybusinessV4::Review::Representation
+          command.response_class = Google::Apis::MybusinessV4::Review
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -865,7 +865,7 @@ module Google
         # This operation is only valid if the specified location is verified.
         # @param [String] name
         #   The name of the review to respond to.
-        # @param [Google::Apis::MybusinessV3::ReviewReply] review_reply_object
+        # @param [Google::Apis::MybusinessV4::ReviewReply] review_reply_object
         # @param [String] fields
         #   Selector specifying which fields to include in a partial response.
         # @param [String] quota_user
@@ -875,20 +875,20 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::ReviewReply] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::ReviewReply] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::ReviewReply]
+        # @return [Google::Apis::MybusinessV4::ReviewReply]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def reply_to_review(name, review_reply_object = nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:post, 'v3/{+name}/reply', options)
-          command.request_representation = Google::Apis::MybusinessV3::ReviewReply::Representation
+          command =  make_simple_command(:put, 'v4/{+name}/reply', options)
+          command.request_representation = Google::Apis::MybusinessV4::ReviewReply::Representation
           command.request_object = review_reply_object
-          command.response_representation = Google::Apis::MybusinessV3::ReviewReply::Representation
-          command.response_class = Google::Apis::MybusinessV3::ReviewReply
+          command.response_representation = Google::Apis::MybusinessV4::ReviewReply::Representation
+          command.response_class = Google::Apis::MybusinessV4::ReviewReply
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -908,18 +908,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::Empty] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::Empty] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::Empty]
+        # @return [Google::Apis::MybusinessV4::Empty]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def delete_reply(name, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:delete, 'v3/{+name}/reply', options)
-          command.response_representation = Google::Apis::MybusinessV3::Empty::Representation
-          command.response_class = Google::Apis::MybusinessV3::Empty
+          command =  make_simple_command(:delete, 'v4/{+name}/reply', options)
+          command.response_representation = Google::Apis::MybusinessV4::Empty::Representation
+          command.response_class = Google::Apis::MybusinessV4::Empty
           command.params['name'] = name unless name.nil?
           command.query['fields'] = fields unless fields.nil?
           command.query['quotaUser'] = quota_user unless quota_user.nil?
@@ -946,18 +946,18 @@ module Google
         #   Request-specific options
         #
         # @yield [result, err] Result & error if block supplied
-        # @yieldparam result [Google::Apis::MybusinessV3::ListLocationAttributeMetadataResponse] parsed result object
+        # @yieldparam result [Google::Apis::MybusinessV4::ListLocationAttributeMetadataResponse] parsed result object
         # @yieldparam err [StandardError] error object if request failed
         #
-        # @return [Google::Apis::MybusinessV3::ListLocationAttributeMetadataResponse]
+        # @return [Google::Apis::MybusinessV4::ListLocationAttributeMetadataResponse]
         #
         # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
         # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
         # @raise [Google::Apis::AuthorizationError] Authorization is required
         def list_attributes(name: nil, category_id: nil, country: nil, language_code: nil, fields: nil, quota_user: nil, options: nil, &block)
-          command =  make_simple_command(:get, 'v3/attributes', options)
-          command.response_representation = Google::Apis::MybusinessV3::ListLocationAttributeMetadataResponse::Representation
-          command.response_class = Google::Apis::MybusinessV3::ListLocationAttributeMetadataResponse
+          command =  make_simple_command(:get, 'v4/attributes', options)
+          command.response_representation = Google::Apis::MybusinessV4::ListLocationAttributeMetadataResponse::Representation
+          command.response_class = Google::Apis::MybusinessV4::ListLocationAttributeMetadataResponse
           command.query['name'] = name unless name.nil?
           command.query['categoryId'] = category_id unless category_id.nil?
           command.query['country'] = country unless country.nil?

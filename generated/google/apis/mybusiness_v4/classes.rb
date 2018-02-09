@@ -20,7 +20,7 @@ require 'google/apis/errors'
 
 module Google
   module Apis
-    module MybusinessV3
+    module MybusinessV4
       
       # 
       class ListAccountsResponse
@@ -28,7 +28,7 @@ module Google
       
         # A collection of accounts to which the user has access.
         # Corresponds to the JSON property `accounts`
-        # @return [Array<Google::Apis::MybusinessV3::Account>]
+        # @return [Array<Google::Apis::MybusinessV4::Account>]
         attr_accessor :accounts
       
         # If the number of accounts exceeds the requested page size, this field is
@@ -87,7 +87,7 @@ module Google
         # Indicates status of the account, such as whether the account
         # has been verified by Google.
         # Corresponds to the JSON property `state`
-        # @return [Google::Apis::MybusinessV3::AccountState]
+        # @return [Google::Apis::MybusinessV4::AccountState]
         attr_accessor :state
       
         def initialize(**args)
@@ -110,6 +110,8 @@ module Google
         attr_accessor :name
       
         attr_accessor :topic_name
+
+        attr_accessor :notification_types
       
         def initialize(**args)
            update!(**args)
@@ -119,6 +121,7 @@ module Google
         def update!(**args)
           @name = args[:name] if args.key?(:name)
           @topic_name = args[:topic_name] if args.key?(:topic_name)
+          @notification_types = args[:notification_types] if args.key?(:notification_types)
         end
       end
       
@@ -150,7 +153,7 @@ module Google
       
         # A collection of Admin instances.
         # Corresponds to the JSON property `admins`
-        # @return [Array<Google::Apis::MybusinessV3::Admin>]
+        # @return [Array<Google::Apis::MybusinessV4::Admin>]
         attr_accessor :admins
       
         def initialize(**args)
@@ -237,7 +240,7 @@ module Google
       
         # The locations
         # Corresponds to the JSON property `locations`
-        # @return [Array<Google::Apis::MybusinessV3::Location>]
+        # @return [Array<Google::Apis::MybusinessV4::Location>]
         attr_accessor :locations
       
         # If the number of locations exceeded the requested page size, this field
@@ -316,23 +319,23 @@ module Google
         # address_lines: "1600 Amphitheatre Parkway"
         # locality: Mountain View
         # administrative_area: CA
-        # country: US
+        # region_code: US
         # postal_code: 94043
         # address_lines: "A-205, Natasha Apartments", "2, Inner Ring Road"
-        # sub_locality: Domlur
+        # sublocality: Domlur
         # locality: Bangalore
         # administrative_area: Karnataka
-        # country: IN
+        # region_code: IN
         # postal_code: 560071
         # Corresponds to the JSON property `address`
-        # @return [Google::Apis::MybusinessV3::Address]
+        # @return [Google::Apis::MybusinessV4::Address]
         attr_accessor :address
       
         # A category describing what this business is (not what it does). For a list of
         # valid category IDs, and the mappings to their human readable names, see
         # the [category list](/my-business/content/categories).
         # Corresponds to the JSON property `primaryCategory`
-        # @return [Google::Apis::MybusinessV3::Category]
+        # @return [Google::Apis::MybusinessV4::Category]
         attr_accessor :primary_category
       
         # Additional categories to describe your business.
@@ -343,7 +346,7 @@ module Google
         # Choose categories that are as specific as possible, but representative of
         # your main business.
         # Corresponds to the JSON property `additionalCategories`
-        # @return [Array<Google::Apis::MybusinessV3::Category>]
+        # @return [Array<Google::Apis::MybusinessV4::Category>]
         attr_accessor :additional_categories
       
         # A URL for this business. If possible, use a URL that represents this
@@ -357,24 +360,24 @@ module Google
         # Holds a collection of TimePeriod
         # instances.
         # Corresponds to the JSON property `regularHours`
-        # @return [Google::Apis::MybusinessV3::BusinessHours]
+        # @return [Google::Apis::MybusinessV4::BusinessHours]
         attr_accessor :regular_hours
       
         # Represents a set of time periods when a location's operational hours differ
         # from its normal business hours.
         # Corresponds to the JSON property `specialHours`
-        # @return [Google::Apis::MybusinessV3::SpecialHours]
+        # @return [Google::Apis::MybusinessV4::SpecialHours]
         attr_accessor :special_hours
       
         # Service area businesses provide their service at the customer's location (for
         # example a locksmith or plumber).
         # Corresponds to the JSON property `serviceArea`
-        # @return [Google::Apis::MybusinessV3::ServiceAreaBusiness]
+        # @return [Google::Apis::MybusinessV4::ServiceAreaBusiness]
         attr_accessor :service_area
       
         # Alternate / surrogate key references for a location.
         # Corresponds to the JSON property `locationKey`
-        # @return [Google::Apis::MybusinessV3::LocationKey]
+        # @return [Google::Apis::MybusinessV4::LocationKey]
         attr_accessor :location_key
       
         # A collection of free-form strings to allow you to tag your business. These
@@ -386,7 +389,7 @@ module Google
       
         # Additional information that is surfaced in AdWords.
         # Corresponds to the JSON property `adWordsLocationExtensions`
-        # @return [Google::Apis::MybusinessV3::AdWordsLocationExtensions]
+        # @return [Google::Apis::MybusinessV4::AdWordsLocationExtensions]
         attr_accessor :ad_words_location_extensions
       
         # A collection of photos representing the business, categorized by photo type.
@@ -401,7 +404,7 @@ module Google
         # must measure a minimum of 250px on the short edge, with a file size of at
         # least 10240 bytes.
         # Corresponds to the JSON property `photos`
-        # @return [Google::Apis::MybusinessV3::Photos]
+        # @return [Google::Apis::MybusinessV4::Photos]
         attr_accessor :photos
       
         # An object representing a latitude/longitude pair. This is expressed as a pair
@@ -440,28 +443,28 @@ module Google
         # assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)
         # assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)
         # Corresponds to the JSON property `latlng`
-        # @return [Google::Apis::MybusinessV3::LatLng]
+        # @return [Google::Apis::MybusinessV4::LatLng]
         attr_accessor :latlng
       
         # Indicates whether the location is currently open for business.
         # All locations are open by default, unless updated to be closed.
         # Corresponds to the JSON property `openInfo`
-        # @return [Google::Apis::MybusinessV3::OpenInfo]
+        # @return [Google::Apis::MybusinessV4::OpenInfo]
         attr_accessor :open_info
       
         # Contains a set of booleans that reflect the state of a Location.
         # Corresponds to the JSON property `locationState`
-        # @return [Google::Apis::MybusinessV3::LocationState]
+        # @return [Google::Apis::MybusinessV4::LocationState]
         attr_accessor :location_state
       
         # Attributes for this location.
         # Corresponds to the JSON property `attributes`
-        # @return [Array<Google::Apis::MybusinessV3::Attribute>]
+        # @return [Array<Google::Apis::MybusinessV4::Attribute>]
         attr_accessor :attributes
       
         # Additional non-user-editable information about the location.
         # Corresponds to the JSON property `metadata`
-        # @return [Google::Apis::MybusinessV3::Metadata]
+        # @return [Google::Apis::MybusinessV4::Metadata]
         attr_accessor :metadata
       
         def initialize(**args)
@@ -499,13 +502,13 @@ module Google
       # address_lines: "1600 Amphitheatre Parkway"
       # locality: Mountain View
       # administrative_area: CA
-      # country: US
+      # region_code: US
       # postal_code: 94043
       # address_lines: "A-205, Natasha Apartments", "2, Inner Ring Road"
-      # sub_locality: Domlur
+      # sublocality: Domlur
       # locality: Bangalore
       # administrative_area: Karnataka
-      # country: IN
+      # region_code: IN
       # postal_code: 560071
       class Address
         include Google::Apis::Core::Hashable
@@ -529,9 +532,9 @@ module Google
         # Manhattan (United States),
         # Centro (Mexico),
         # Songpa District (South Korea.)
-        # Corresponds to the JSON property `subLocality`
+        # Corresponds to the JSON property `sublocality`
         # @return [String]
-        attr_accessor :sub_locality
+        attr_accessor :sublocality
       
         # The city or town where the business is located.
         # Also known as:
@@ -563,9 +566,9 @@ module Google
       
         # The ISO 3166-1 alpha-2 country code where the business is located. Once
         # a location is created, the country cannot be changed.
-        # Corresponds to the JSON property `country`
+        # Corresponds to the JSON property `region_code`
         # @return [String]
-        attr_accessor :country
+        attr_accessor :region_code
       
         # The postal code of the business. If the postal code begins with zero, make
         # sure that your formatting does not remove the zero as the first digit.
@@ -581,10 +584,10 @@ module Google
         # Update properties of this object
         def update!(**args)
           @address_lines = args[:address_lines] if args.key?(:address_lines)
-          @sub_locality = args[:sub_locality] if args.key?(:sub_locality)
+          @sublocality = args[:sublocality] if args.key?(:sublocality)
           @locality = args[:locality] if args.key?(:locality)
           @administrative_area = args[:administrative_area] if args.key?(:administrative_area)
-          @country = args[:country] if args.key?(:country)
+          @region_code = args[:region_code] if args.key?(:region_code)
           @postal_code = args[:postal_code] if args.key?(:postal_code)
         end
       end
@@ -631,7 +634,7 @@ module Google
         # A collection of times that this location is open for business. Each period
         # represents a range of hours when the location is open during the week.
         # Corresponds to the JSON property `periods`
-        # @return [Array<Google::Apis::MybusinessV3::TimePeriod>]
+        # @return [Array<Google::Apis::MybusinessV4::TimePeriod>]
         attr_accessor :periods
       
         def initialize(**args)
@@ -697,7 +700,7 @@ module Google
       
         # A list of exceptions to the business's regular hours.
         # Corresponds to the JSON property `specialHourPeriods`
-        # @return [Array<Google::Apis::MybusinessV3::SpecialHourPeriod>]
+        # @return [Array<Google::Apis::MybusinessV4::SpecialHourPeriod>]
         attr_accessor :special_hour_periods
       
         def initialize(**args)
@@ -739,7 +742,7 @@ module Google
         # of year, e.g. anniversary date. Related types are google.type.TimeOfDay
         # and `google.protobuf.Timestamp`.
         # Corresponds to the JSON property `startDate`
-        # @return [Google::Apis::MybusinessV3::Date]
+        # @return [Google::Apis::MybusinessV4::Date]
         attr_accessor :start_date
       
         # The wall time on `start_date` when a location opens, expressed in
@@ -758,7 +761,7 @@ module Google
         # of year, e.g. anniversary date. Related types are google.type.TimeOfDay
         # and `google.protobuf.Timestamp`.
         # Corresponds to the JSON property `endDate`
-        # @return [Google::Apis::MybusinessV3::Date]
+        # @return [Google::Apis::MybusinessV4::Date]
         attr_accessor :end_date
       
         # The wall time on end_date when a location closes, expressed in
@@ -843,12 +846,12 @@ module Google
       
         # A radius around a particular point (latitude/longitude).
         # Corresponds to the JSON property `radius`
-        # @return [Google::Apis::MybusinessV3::PointRadius]
+        # @return [Google::Apis::MybusinessV4::PointRadius]
         attr_accessor :radius
       
         # Defines the union of areas represented by a set of places.
         # Corresponds to the JSON property `places`
-        # @return [Google::Apis::MybusinessV3::Places]
+        # @return [Google::Apis::MybusinessV4::Places]
         attr_accessor :places
       
         def initialize(**args)
@@ -903,7 +906,7 @@ module Google
         # assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)
         # assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)
         # Corresponds to the JSON property `latlng`
-        # @return [Google::Apis::MybusinessV3::LatLng]
+        # @return [Google::Apis::MybusinessV4::LatLng]
         attr_accessor :latlng
       
         # The distance in kilometers of the area around the point.
@@ -987,7 +990,7 @@ module Google
       
         # The areas represented by place IDs.
         # Corresponds to the JSON property `placeInfos`
-        # @return [Array<Google::Apis::MybusinessV3::PlaceInfo>]
+        # @return [Array<Google::Apis::MybusinessV4::PlaceInfo>]
         attr_accessor :place_infos
       
         def initialize(**args)
@@ -1387,7 +1390,7 @@ module Google
       
         # Information about the location that this location duplicates.
         # Corresponds to the JSON property `duplicate`
-        # @return [Google::Apis::MybusinessV3::Duplicate]
+        # @return [Google::Apis::MybusinessV4::Duplicate]
         attr_accessor :duplicate, :maps_url
       
         def initialize(**args)
@@ -1412,12 +1415,6 @@ module Google
         # @return [String]
         attr_accessor :location_name
       
-        # Indicates the ownership status between this location and the location
-        # that it duplicates.
-        # Corresponds to the JSON property `ownership`
-        # @return [String]
-        attr_accessor :ownership
-      
         def initialize(**args)
            update!(**args)
         end
@@ -1425,7 +1422,6 @@ module Google
         # Update properties of this object
         def update!(**args)
           @location_name = args[:location_name] if args.key?(:location_name)
-          @ownership = args[:ownership] if args.key?(:ownership)
         end
       end
       
@@ -1454,7 +1450,7 @@ module Google
       
         # A collection of locations.
         # Corresponds to the JSON property `locations`
-        # @return [Array<Google::Apis::MybusinessV3::Location>]
+        # @return [Array<Google::Apis::MybusinessV4::Location>]
         attr_accessor :locations
       
         def initialize(**args)
@@ -1478,7 +1474,7 @@ module Google
         # list](/my-business/content/categories] for a list of valid business
         # categories.
         # Corresponds to the JSON property `location`
-        # @return [Google::Apis::MybusinessV3::Location]
+        # @return [Google::Apis::MybusinessV4::Location]
         attr_accessor :location
       
         # The fields that Google updated.
@@ -1503,7 +1499,7 @@ module Google
       
         # A collection of Admin instances.
         # Corresponds to the JSON property `admins`
-        # @return [Array<Google::Apis::MybusinessV3::Admin>]
+        # @return [Array<Google::Apis::MybusinessV4::Admin>]
         attr_accessor :admins
       
         def initialize(**args)
@@ -1560,7 +1556,7 @@ module Google
         # location, listed in order from best to least match. If there is an exact
         # match, it will be in the first position.
         # Corresponds to the JSON property `matchedLocations`
-        # @return [Array<Google::Apis::MybusinessV3::MatchedLocation>]
+        # @return [Array<Google::Apis::MybusinessV4::MatchedLocation>]
         attr_accessor :matched_locations
       
         # When the matching algorithm was last executed for this location.
@@ -1590,7 +1586,7 @@ module Google
         # list](/my-business/content/categories] for a list of valid business
         # categories.
         # Corresponds to the JSON property `location`
-        # @return [Google::Apis::MybusinessV3::Location]
+        # @return [Google::Apis::MybusinessV4::Location]
         attr_accessor :location
       
         # Is this an exact match?
@@ -1671,7 +1667,7 @@ module Google
       
         # The reviews.
         # Corresponds to the JSON property `reviews`
-        # @return [Array<Google::Apis::MybusinessV3::Review>]
+        # @return [Array<Google::Apis::MybusinessV4::Review>]
         attr_accessor :reviews
       
         # The average star rating of all reviews for this location
@@ -1718,7 +1714,7 @@ module Google
       
         # Represents the author of reviews.
         # Corresponds to the JSON property `reviewer`
-        # @return [Google::Apis::MybusinessV3::Reviewer]
+        # @return [Google::Apis::MybusinessV4::Reviewer]
         attr_accessor :reviewer
       
         # Star rating of the review.
@@ -1743,7 +1739,7 @@ module Google
       
         # Represents the location owner/manager's reply to a review
         # Corresponds to the JSON property `reviewReply`
-        # @return [Google::Apis::MybusinessV3::ReviewReply]
+        # @return [Google::Apis::MybusinessV4::ReviewReply]
         attr_accessor :review_reply
       
         def initialize(**args)
@@ -1822,7 +1818,7 @@ module Google
       
         # A collection of attribute metadata for the available attributes.
         # Corresponds to the JSON property `attributes`
-        # @return [Array<Google::Apis::MybusinessV3::AttributeMetadata>]
+        # @return [Array<Google::Apis::MybusinessV4::AttributeMetadata>]
         attr_accessor :attributes
       
         def initialize(**args)
@@ -1876,7 +1872,7 @@ module Google
         # For some types of attributes (e.g. enums) a list of supported values and
         # corresponding display names for those values is provided.
         # Corresponds to the JSON property `valueMetadata`
-        # @return [Array<Google::Apis::MybusinessV3::AttributeValueMetadata>]
+        # @return [Array<Google::Apis::MybusinessV4::AttributeValueMetadata>]
         attr_accessor :value_metadata
       
         def initialize(**args)

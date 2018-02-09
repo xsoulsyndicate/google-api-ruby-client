@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require 'google/apis/mybusiness_v3/service.rb'
-require 'google/apis/mybusiness_v3/classes.rb'
-require 'google/apis/mybusiness_v3/representations.rb'
+require 'google/apis/mybusiness_v4/service.rb'
+require 'google/apis/mybusiness_v4/classes.rb'
+require 'google/apis/mybusiness_v4/representations.rb'
 
 module Google
   module Apis
@@ -24,8 +24,8 @@ module Google
     # location information on Google.
     #
     # @see https://developers.google.com/my-business/
-    module MybusinessV3
-      VERSION = 'V3'
+    module MybusinessV4
+      VERSION = 'V4'
       REVISION = '0'
     end
   end
