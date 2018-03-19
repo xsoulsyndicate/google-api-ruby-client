@@ -1414,6 +1414,10 @@ module Google
         # Corresponds to the JSON property `locationName`
         # @return [String]
         attr_accessor :location_name
+
+        attr_accessor :place_id
+
+        attr_accessor :access
       
         def initialize(**args)
            update!(**args)
@@ -1422,6 +1426,8 @@ module Google
         # Update properties of this object
         def update!(**args)
           @location_name = args[:location_name] if args.key?(:location_name)
+          @place_id = args[:place_id] if args.key?(:place_id)
+          @access = args[:access] if args.key?(:access)
         end
       end
       

@@ -603,6 +603,8 @@ module Google
         # @private
         class Representation < Google::Apis::Core::JsonRepresentation
           property :location_name, as: 'locationName'
+          property :place_id, as: 'placeId'
+          property :access, as: 'access'
         end
       end
       
